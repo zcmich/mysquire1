@@ -6,7 +6,7 @@
   */
 
    var sendDataToServer = (data) => {
-     var url = '/endpoint-results';
+     var url = '/sparql-endpoint/endpoint-results';
      $.ajax({
         method: 'POST',
         // dataType: 'json',

@@ -1,11 +1,10 @@
 package com.mySquire.controllers;
 
+import com.mySquire.model.Data;
 import com.mySquire.services.DataSetUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.QueryParam;
@@ -16,8 +15,8 @@ import javax.ws.rs.core.MediaType;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-@RestController
-@RequestMapping("/squire/sparql-endpoint")
+@Controller
+@RequestMapping("/sparql-endpoint")
 public class endpointController {
     @Autowired
     DataSetUrlService service;
@@ -33,8 +32,21 @@ public class endpointController {
         return service.endpointDataUrlService(query);
     }
 
+    @GetMapping("/select")
+    public String entry() {
+        return "entry";
+    }
+
+
+    @RequestMapping(value = "/endpoint-results" , method = RequestMethod.POST)
+    public @ResponseBody
+    Data getResultsFromSparqlEndpoint(@RequestBody Data jsonString) {
+        return jsonString;
+    }
 
 }
+
+
 
 
 

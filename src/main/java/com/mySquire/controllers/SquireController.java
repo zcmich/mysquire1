@@ -12,22 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class SquireController {
 
 
-    @GetMapping("/")
-    public String entry() {
-        return "entry";
-    }
-
- /*   @RequestMapping("/")
-    public ModelAndView index () {
+    @RequestMapping("/")
+    public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         return modelAndView;
-    } */
-
-    @PostMapping()
-    @RequestMapping(value = "/endpoint-results" , method = RequestMethod.POST)
-    public @ResponseBody Data getResultsFromSparqlEndpoint(@RequestBody Data jsonString) {
-        return jsonString;
     }
 
 }
